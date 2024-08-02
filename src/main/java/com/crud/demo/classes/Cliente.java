@@ -31,6 +31,11 @@ public class Cliente {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
 
+
+    @OneToOne
+    @JoinColumn(name = "conta_bancaria_id", referencedColumnName = "id")
+    private ContaBancaria contaBancaria;
+
     @Column(length = 11)
     private String telefone;
 

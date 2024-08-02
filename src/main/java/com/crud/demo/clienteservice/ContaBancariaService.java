@@ -16,12 +16,12 @@ public class ContaBancariaService {
     private ContaBancariaRepository contaBancariaRepository;
 
     public List<ContaBancaria> getAll() {
-        return contaBancariaRepository.getAll();
+        return contaBancariaRepository.findAll();
     }
 
-    public ContaBancaria getByNumeroConta(String numeroConta) {
-        return contaBancariaRepository.findByNumeroConta(numeroConta);
-    }
+    // public ContaBancaria getByNumeroConta(String numeroConta) {
+    //     return contaBancariaRepository.findByNumeroConta(numeroConta);
+    // }
 
     public ContaBancaria addContaBancaria(ContaBancaria contaBancaria) {
         return contaBancariaRepository.save(contaBancaria);
@@ -30,5 +30,10 @@ public class ContaBancariaService {
     public void deleteContaBancaria(Long id) {
         contaBancariaRepository.deleteById(id);
     }
+
+	public List<ContaBancaria> findAll() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+	}
 
 }

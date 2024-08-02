@@ -27,39 +27,4 @@ public class ContaBancariaController {
         ContaBancaria contaSalva = contaBancariaService.addContaBancaria(contaBancaria);
         return ResponseEntity.ok(contaSalva);
     }
-
-    @GetMapping("/{numeroConta}")
-    public ResponseEntity<ContaBancaria> getByNumeroConta(@PathVariable String numeroConta) {
-        ContaBancaria conta = contaBancariaService.getByNumeroConta(numeroConta);
-
-        if (conta == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(conta);
-    }
-
-    @PutMapping("/{numeroConta}")
-    public ResponseEntity<ContaBancaria> update(@PathVariable String numeroConta, @RequestBody ContaBancaria conta) {
-        ContaBancaria contaExistente = contaBancariaService.getByNumeroConta(numeroConta);
-
-        if (contaExistente == null) {
-            return ResponseEntity.notFound().build();
-        }
-        contaExistente.setSaldo(conta.getSaldo());
-        contaExistente.setCliente(conta.getCliente());
-
-        ContaBancaria contaSalva = contaBancariaService.addContaBancaria(contaExistente);
-        return ResponseEntity.ok(contaSalva);
-    }
-
-    @DeleteMapping("/{numeroConta}")
-    public ResponseEntity<ContaBancaria> delete(@PathVariable String numeroConta) {
-        ContaBancaria conta = contaBancariaService.getByNumeroConta(numeroConta);
-
-        if (conta == null) {
-            return ResponseEntity.notFound().build();
-        }
-        contaBancariaService.deleteContaBancaria(conta.getId());
-        return ResponseEntity.noContent().build();
-    }
 }

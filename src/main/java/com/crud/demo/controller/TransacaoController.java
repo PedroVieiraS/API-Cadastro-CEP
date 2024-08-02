@@ -9,6 +9,5 @@ import com.crud.demo.repository.TransacaoRepository;
 @RequestMapping("/transacoes")
 public class TransacaoController {
 
-    @Autowired
-    private TransacaoRepository transacaoRepository;
+
 }
